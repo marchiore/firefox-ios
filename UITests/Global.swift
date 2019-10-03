@@ -295,6 +295,18 @@ class BrowserUtils {
 		}
 	}
 
+    class func enterUrlAddressBar(typeUrl: String) {
+        EarlGrey.selectElement(with: grey_accessibilityID("url"))
+                .inRoot(grey_kindOfClass(UITextField.self))
+                .perform(grey_tap())
+            EarlGrey.selectElement(with: grey_accessibilityID("address"))
+                .inRoot(grey_kindOfClass(UITextField.self))
+                .perform(grey_replaceText(typeUrl))
+            EarlGrey.selectElement(with: grey_accessibilityID("address"))
+                .inRoot(grey_kindOfClass(UITextField.self))
+                .perform(grey_typeText("\n"))
+    }
+
     class func iPad() -> Bool {
         return UIDevice.current.userInterfaceIdiom == .pad
     }
