@@ -753,7 +753,7 @@ func createScreenGraph(for test: XCTestCase, with app: XCUIApplication) -> MMScr
     }
 
     func select(rows: Int) {
-        app.staticTexts[String(rows)].tap()
+        app.staticTexts[String(rows)].firstMatch.tap()
     }
 
     map.addScreenState(PasscodeSettings) { screenState in
