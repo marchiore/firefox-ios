@@ -77,16 +77,12 @@ class LoginInputTests: KIFTestCase {
         tester().waitForAnimationsToFinish(withTimeout: 3)
         waitForLoginDialog(text: "Save login \(username) for \(self.webRoot!)?")
         
-        EarlGrey.selectElement(with: grey_accessibilityID("SaveLoginPrompt.saveLoginButton"))
-            .perform(grey_tap())
         tester().tapView(withAccessibilityIdentifier: "SaveLoginPrompt.saveLoginButton")
         tester().enterText(username, intoWebViewInputWithName: "username")
         tester().enterText(password2, intoWebViewInputWithName: "password")
         tester().tapWebViewElementWithAccessibilityLabel("submit_btn")
         tester().waitForAnimationsToFinish(withTimeout: 3)
         waitForLoginDialog(text: "Update login \(username) for \(self.webRoot!)?")
-        EarlGrey.selectElement(with: grey_accessibilityID("UpdateLoginPrompt.updateButton"))
-            .perform(grey_tap())
         tester().tapView(withAccessibilityIdentifier: "UpdateLoginPrompt.updateButton")
     }
 
